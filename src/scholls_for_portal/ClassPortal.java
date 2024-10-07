@@ -34,19 +34,19 @@ public class ClassPortal {
             }
             switch (portalNomresi) {
                 case 1:
-                    System.out.println(sinifElaveEtVeSil.sinifElaveEt());
+                    System.out.println(studentAddDelete.sinifElaveEt());
                     break;
                 case 2:
-                    System.out.println(sinifElaveEtVeSil.sinifSil());
+                    System.out.println(studentAddDelete.sinifSil());
                     break;
                 case 3:
-                    System.out.println(sinifElaveEtVeSil.siniflereBax());
+                    System.out.println(studentAddDelete.siniflereBax());
                     break;
                 case 4:
-                    System.out.println(muellimDaxiletveSil.muellimDaxilEt());
+                    System.out.println(teacherAddDelete.muellimDaxilEt());
                     break;
                 case 5:
-                    System.out.println(muellimDaxiletveSil.muellimiSil());
+                    System.out.println(teacherAddDelete.muellimiSil());
                     break;
                 case 6:
                     System.out.println();
