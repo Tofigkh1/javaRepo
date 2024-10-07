@@ -6,63 +6,63 @@ import java.util.Scanner;
 
 public class ClassAddDelete {
 
-    static List<String> sinifElaveEtVeSils = new ArrayList<>();
+    static List<String> classAddDelete = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
 
-    public List<String> sinifElaveEt() {
+    public List<String> clasAdd() {
         while (true) {
             System.out.print("Sinif və ya siniflərin adını daxil edin cixis ucun 0'a basin: ");
 
-            String sinifAdi = scanner.nextLine().trim();
+            String className = scanner.nextLine().trim();
 
-            if (sinifAdi.equals("0")) {
+            if (className.equals("0")) {
                 System.out.println("Daxil edilen sinifler: ");
                 break;
             }
-            if (sinifElaveEtVeSils.contains(sinifAdi)) {
+            if (classAddDelete.contains(className)) {
                 System.out.println("Bu sinif artıq mövcuddur...!");
             } else {
-                sinifElaveEtVeSils.add(sinifAdi);
+                classAddDelete.add(className);
                 System.out.println("Sinif uğurla elave edildi ✔");
             }
 
-            System.out.println("Hazırda siyahıdakı sinifler: " + sinifElaveEtVeSils);
+            System.out.println("Hazırda siyahıdakı sinifler: " + classAddDelete.size());
 
         }
-        return sinifElaveEtVeSils;
+        return classAddDelete;
 
     }
 
-    public List<String> sinifSil() {
+    public List<String> classDelete() {
         while (true) {
             System.out.println("silmek istediyniz sinifin adini daxil edin cixis ucun 0'a basin: ");
-            String silineceySinifAdi = scanner.nextLine();
-            if (silineceySinifAdi.equals("0")) {
+            String deleteClassName = scanner.nextLine();
+            if (deleteClassName.equals("0")) {
                 break;
             }
-            if (sinifElaveEtVeSils.isEmpty()) {
+            if (classAddDelete.isEmpty()) {
                 System.out.println("Ilk evvel sinifi daxil etmek lazimdir....!");
-            } else if (sinifElaveEtVeSils.contains(silineceySinifAdi)) {
-                sinifElaveEtVeSils.remove(silineceySinifAdi);
-                System.out.println(silineceySinifAdi + " sinifi ugurla silindi ✔");
+            } else if (classAddDelete.contains(deleteClassName)) {
+                classAddDelete.remove(deleteClassName);
+                System.out.println(deleteClassName + " sinifi ugurla silindi ✔");
 
             } else {
-                System.out.println(silineceySinifAdi + " adinda bir sinif yoxdur ❌");
+                System.out.println(deleteClassName + " adinda bir sinif yoxdur ❌");
             }
         }
         System.out.print("Mektebdeki sinifler : ");
-        return sinifElaveEtVeSils;
+        return classAddDelete;
     }
 
-    public List<String> siniflereBax() {
+    public List<String> classLook() {
 
-        if (sinifElaveEtVeSils.isEmpty()) {
+        if (classAddDelete.isEmpty()) {
             System.out.println("Hal hazirda mektebde teyin olunmus bir sinif yoxdur...!");
 
         } else {
             System.out.println("Hal hazirdaki sinifler bunlardir: ");
         }
-        return sinifElaveEtVeSils;
+        return classAddDelete;
 
 
     }}

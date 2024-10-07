@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class ClassPortal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        StudentAddDelete studentAddDelete = new StudentAddDelete();
-        TeacherAddDelete teacherAddDelete = new TeacherAddDelete();
+        ClassAddDelete classAddDelete = new ClassAddDelete();
+        TeacherAddDelete teacherAddDelete=new TeacherAddDelete();
 
         while (true) {
             System.out.println("========== Məktəb Portalı ==========");
@@ -23,30 +23,30 @@ public class ClassPortal {
             System.out.println("10. Çıxış");
             System.out.print("Zəhmət olmasa seçim edin: ");
 
-            int portalNomresi;
+            int portalNumber;
             try {
-                portalNomresi = scanner.nextInt();
+                portalNumber = scanner.nextInt();
             } catch (InputMismatchException e) {
 
                 System.out.println("❌ Yalniz reqem daxil edin: ");
                 scanner.next();
                 continue;
             }
-            switch (portalNomresi) {
+            switch (portalNumber) {
                 case 1:
-                    System.out.println(studentAddDelete.sinifElaveEt());
+                    System.out.println(classAddDelete.clasAdd());
                     break;
                 case 2:
-                    System.out.println(studentAddDelete.sinifSil());
+                    System.out.println(classAddDelete.classDelete());
                     break;
                 case 3:
-                    System.out.println(studentAddDelete.siniflereBax());
+                    System.out.println(classAddDelete.classLook());
                     break;
                 case 4:
-                    System.out.println(teacherAddDelete.muellimDaxilEt());
+                    System.out.println(teacherAddDelete.teacherAdd());
                     break;
                 case 5:
-                    System.out.println(teacherAddDelete.muellimiSil());
+                    System.out.println(teacherAddDelete.teacherDelete());
                     break;
                 case 6:
                     System.out.println();
