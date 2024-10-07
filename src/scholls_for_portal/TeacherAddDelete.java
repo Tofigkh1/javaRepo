@@ -6,34 +6,34 @@ import java.util.Scanner;
 
 public class TeacherAddDelete extends ClassAddDelete {
     Scanner scanner = new Scanner(System.in);
-    HashMap<String, String> muellimVeSinif = new HashMap<>();
-    String ad;
-    String soyAd;
+    HashMap<String, String> teacherAndClass = new HashMap<>();
+    String name;
+    String surname;
 
-    public String muellimDaxilEt() {
+    public String teacherAdd() {
         System.out.print("Muellim adini daxil edin: ");
-        ad = scanner.nextLine();
+        name = scanner.nextLine();
 
         System.out.print("Muellim soyadini daxil edin: ");
-        soyAd = scanner.nextLine();
+        surname = scanner.nextLine();
         while (true) {
-            System.out.print(ad + " " + soyAd + " hansi sinife ders deyecey ? : ");
+            System.out.print(name + " " + surname + " hansi sinife ders deyecey ? : ");
 
-            String dersDeyeceyiSinif = scanner.nextLine();
-            String adVeSoyad = ad + " " + soyAd;
-            if (dersDeyeceyiSinif.equals("0")) {
+            String eduClass = scanner.nextLine();
+            String nameAndSurname = name + " " + surname;
+            if (eduClass.equals("0")) {
                 break;
             }
 
-            if (sinifElaveEtVeSils.contains(dersDeyeceyiSinif)) {
+            if (classAddDelete.contains(eduClass)) {
 
-                muellimVeSinif.put(dersDeyeceyiSinif, adVeSoyad);
+                teacherAndClass.put(eduClass, nameAndSurname);
 
-                String umumi = muellimVeSinif.get(dersDeyeceyiSinif) + " " +
-                        dersDeyeceyiSinif + " sinifine ders deyecey , " +
+                String general = teacherAndClass.get(eduClass) + " " +
+                        eduClass + " sinifine ders deyecey , " +
                         "cixis ucun 0 abasin...!";
 
-                System.out.println(umumi);
+                System.out.println(general);
 
             } else {
                 System.out.println("Bele bir sinif hal hazirda yoxdur , cixis ucun 0 abasin..!");
@@ -44,27 +44,27 @@ public class TeacherAddDelete extends ClassAddDelete {
 
 
 
-    public String  muellimiSil() {
+    public String  teacherDelete() {
         System.out.print("Siyahidan silmek isdediyniz muellimin ilk once adini:  ");
-        String adSilme = scanner.nextLine();
+        String nameDelete = scanner.nextLine();
 
         System.out.print("Sonra ise soyadini daxil edin: ");
-        String soyAdSilme = scanner.nextLine();
+        String surnameDelete = scanner.nextLine();
 
-        String adVeSoyad = adSilme + " " + soyAdSilme;
+        String nameAndSurname = nameDelete + " " + surnameDelete;
 
-        String sinifKeyToRemove = null;
+        String classKeyToRemove = null;
 
-        for (Map.Entry<String, String> entry : muellimVeSinif.entrySet()) {
-            if (entry.getValue().equals(adVeSoyad)) {
-                sinifKeyToRemove = entry.getKey();
+        for (Map.Entry<String, String> entry : teacherAndClass.entrySet()) {
+            if (entry.getValue().equals(nameAndSurname)) {
+                classKeyToRemove = entry.getKey();
                 break;
             }
         }
 
-        if (sinifKeyToRemove != null) {
-            muellimVeSinif.remove(sinifKeyToRemove);
-            System.out.println(adVeSoyad + " ders dediyi siniflerden  silindi.");
+        if (classKeyToRemove != null) {
+            teacherAndClass.remove(classKeyToRemove);
+            System.out.println(nameAndSurname + " ders dediyi siniflerden  silindi.");
         } else {
             System.out.println("Bele bir muellim yoxdur.");
         }
@@ -72,3 +72,5 @@ public class TeacherAddDelete extends ClassAddDelete {
         return "Silme prosesi tamamlandi.";
     }
 }
+
+
