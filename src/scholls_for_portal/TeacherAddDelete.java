@@ -72,5 +72,3 @@ public class TeacherAddDelete extends ClassAddDelete {
         return "Silme prosesi tamamlandi.";
     }
 }
-
-
